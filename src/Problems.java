@@ -1,6 +1,8 @@
 import java.io.PrintStream;
+import java.util.LinkedList;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
+import java.util.Iterator;
 
 /*
  * Class for solving coding challenge problems
@@ -129,5 +131,33 @@ public class Problems {
 				}
 			}
 		}
+	}
+	
+	public static LinkedList<Integer> addLinkedLists(LinkedList<Integer> list1, LinkedList<Integer> list2) {
+		Iterator<Integer> iter1 = list1.iterator();
+		Iterator<Integer> iter2 = list2.iterator();
+		LinkedList<Integer> toReturn = new LinkedList<Integer>();
+		int int1 = 0;
+		int int2 = 0;
+		int carry = 0;
+		int sum = 0;
+		while (iter1.hasNext() || iter2.hasNext()) {
+			if (iter1.hasNext()) {
+				int1 = iter1.next();
+			}
+			if (iter2.hasNext()) {
+				int2 = iter2.next();
+			}
+			sum = int1 + int2 + carry;
+			carry = sum > 9 ? 1 : 0;
+			toReturn.add(new Integer(sum % 10));
+			int1 = 0;
+			int2 = 0;
+		}
+		
+		if (carry > 0) {
+			toReturn.add(carry);
+		}
+		return toReturn;
 	}
 }

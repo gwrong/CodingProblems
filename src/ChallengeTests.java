@@ -1,10 +1,10 @@
 import static org.junit.Assert.*;
 import junit.framework.Assert;
-
+import java.util.LinkedList;
 import org.junit.Test;
 
 
-public class Tests {
+public class ChallengeTests {
 
 	@Test
 	public void hasUniqueCharacters() {
@@ -56,5 +56,63 @@ public class Tests {
 			builder.append('\n');
 		}
 		return builder.toString();
+	}
+	
+	@Test
+	public void addLinkedLists() {
+		LinkedList<Integer> list1 = new LinkedList<Integer>();
+		list1.add(6);
+		list1.add(6);
+		list1.add(2);
+		list1.add(8);
+		list1.add(2);
+		list1.add(1);
+		LinkedList<Integer> list2 = new LinkedList<Integer>();
+		list2.add(2);
+		list2.add(6);
+		list2.add(3);
+		list2.add(2);
+		list2.add(9);
+		list2.add(2);
+		
+		LinkedList<Integer> result = new LinkedList<Integer>();
+		result.add(8);
+		result.add(2);
+		result.add(6);
+		result.add(0);
+		result.add(2);
+		result.add(4);
+		
+		LinkedList<Integer> actualResult = Problems.addLinkedLists(list1, list2);
+		assertTrue(result.equals(actualResult));
+		
+		
+		
+		list1 = new LinkedList<Integer>();
+		list1.add(6);
+		list1.add(6);
+		list1.add(2);
+		list1.add(8);
+		list1.add(2);
+		list1.add(2);
+		list2 = new LinkedList<Integer>();
+		list2.add(2);
+		list2.add(6);
+		list2.add(3);
+		list2.add(2);
+		list2.add(9);
+		list2.add(8);
+		
+		result = new LinkedList<Integer>();
+		result.add(8);
+		result.add(2);
+		result.add(6);
+		result.add(0);
+		result.add(2);
+		result.add(1);
+		result.add(1);
+		
+		actualResult = Problems.addLinkedLists(list1, list2);
+		assertTrue(result.equals(actualResult));
 	}
 }
