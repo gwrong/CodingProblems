@@ -115,4 +115,9 @@ public class ChallengeTests {
 		actualResult = Problems.addLinkedLists(list1, list2);
 		assertTrue(result.equals(actualResult));
 	}
+	
+	@Test
+	public void testFibonacci() {
+		assertEquals(267914296, Problems.fibonacci(42));
+	}
 }

@@ -133,6 +133,9 @@ public class Problems {
 		}
 	}
 	
+	/*
+	 * Acts as though the linked lists are numbers and adds them together
+	 */
 	public static LinkedList<Integer> addLinkedLists(LinkedList<Integer> list1, LinkedList<Integer> list2) {
 		Iterator<Integer> iter1 = list1.iterator();
 		Iterator<Integer> iter2 = list2.iterator();
@@ -159,5 +162,12 @@ public class Problems {
 			toReturn.add(carry);
 		}
 		return toReturn;
+	}
+	
+	public static int fibonacci(int number) {
+		if (number == 1 || number == 2) {
+			return 1;
+		}
+		return fibonacci(number - 1) + fibonacci(number - 2);
 	}
 }
